@@ -6,15 +6,26 @@ export const Calculadora = ({ num1, num2, name }) => {
         numero1: num1,
         numero2: num2,
         nombre: name,
+        resultado: '',
+        operacion: ''
     })
-    const { numero1, numero2, nombre } = numeros;
+    const { numero1, numero2, nombre, resultado, operacion } = numeros;
 
     const sumar = () => {
-       alert(`Señor ${nombre} el resultado de la suma es ${parseInt(numero1) + parseInt(numero2)}`) 
+        setNumeros({
+            ...numeros,
+            resultado: parseInt(numero1) + parseInt(numero2),
+            operacion: "suma"
+        })
     }
     const restar = () => {
-        alert(`Señor ${nombre} el resultado de la restae es ${parseInt(numero1) - parseInt(numero2)}`) 
+        setNumeros({
+            ...numeros,
+            resultado: parseInt(numero1) - parseInt(numero2),
+            operacion: "resta"
+        })
     }
+
     const onChange = ({ target }) => {
         setNumeros({
             ...numeros,
@@ -24,6 +35,7 @@ export const Calculadora = ({ num1, num2, name }) => {
 
     return (
         <div className="calculadora">
+            <h1>Taller -Ds2</h1>
             <input
                 className="inputText"
                 value={nombre}
@@ -50,6 +62,8 @@ export const Calculadora = ({ num1, num2, name }) => {
                 <button onClick={sumar}>Sumar</button>
                 <button onClick={restar}>Restar</button>
             </div>
+            <p> Señor {nombre} el resultado de la {operacion} es:</p>
+            <p className="result">{resultado}</p>
         </div>
     )
 }

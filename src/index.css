@@ -49,3 +49,7 @@ button:last-child {
   width: 160px;
   height: auto;
 }
+.result{
+  font-size: 36px;
+  margin-top: 0;
+}
